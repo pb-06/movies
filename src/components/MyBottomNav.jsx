@@ -1,27 +1,24 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import BottomNavigation from '@mui/material/BottomNavigation';
-import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-import { MdMovie } from "react-icons/md";
-import { MdOutlineLiveTv } from "react-icons/md";
-import { FaSearch } from "react-icons/fa";
-import { useNavigate } from 'react-router';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { BottomNavigation, BottomNavigationAction } from '@mui/material';
 
-export const MyBottomNav=()=> {
-  const [value, setValue] = React.useState(0);
-  const navigate=useNavigate()
+import Movie from '@mui/icons-material/Movie';
+import TV from '@mui/icons-material/Tv'
+import SearchIcon from '@mui/icons-material/Search';
 
-  const handleChange=(event,newValue)=>{
-    setValue(newValue)
-    console.log(newValue);
-    if(newValue==0) navigate('/')
-    if(newValue==1) navigate('/tvseries')
-    if(newValue==2) navigate('/search')
-  }
+export default function MyBottomNav() {
+  const [value, setValue] = useState(0);
 
   return (
-    <Box sx={{width:'100%',position:'fixed',bottom:0 }}>
-      <BottomNavigation todo="add properties and children" />
-    </Box>
+    <BottomNavigation
+      showLabels
+      value={value}
+      onChange={(event, newValue) => setValue(newValue)}
+      sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }}
+    >
+      <BottomNavigationAction label="Movies" icon={<Movie />} component={Link} to="/movies" />
+      <BottomNavigationAction label="TV Series" icon={<TV />} component={Link} to="/tvseries" />
+      <BottomNavigationAction label="Search" icon={<SearchIcon />} component={Link} to="/search" />
+    </BottomNavigation>
   );
 }
