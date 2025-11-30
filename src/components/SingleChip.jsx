@@ -12,8 +12,8 @@ export const SingleChip = ({ label, selected, onToggle }) => {
             color={selected ? "secondary" : "default"}
             variant={selected ? "filled" : "outlined"}
             icon={selected ? <CheckCircleIcon /> : <RadioButtonUncheckedIcon />}
-            sx={{ 
-                color: 'white', 
+            sx={{
+                color: 'white',
                 borderColor: 'white',
                 '& .MuiChip-icon': { color: 'inherit' }
             }}

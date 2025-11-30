@@ -12,20 +12,21 @@ export const ContentPagination = ({ page, setPage, numOfPages = 10 }) => {
 
   return (
     <Stack spacing={2} sx={{ mt: 5, alignItems: 'center' }}>
-       <Pagination 
-            count={numOfPages} 
-            page={page} 
-            onChange={handleChange} 
-            color="primary"
-            variant="outlined" 
-            shape="rounded"
-            size="large"
-            sx={{ 
-                '& .MuiPaginationItem-root': { color: 'white', borderColor: 'rgba(255,255,255,0.3)' },
-                '& .Mui-selected': { backgroundColor: 'rgba(255,255,255,0.2) !important' }
-            }}
-       />
+      <Pagination
+        count={numOfPages}
+        page={page}
+        onChange={handleChange}
+        color="primary"
+        variant="outlined"
+        shape="rounded"
+        size="large"
+        sx={{
+          '& .MuiPaginationItem-root': { color: 'white', borderColor: 'rgba(255,255,255,0.3)' },
+          '& .Mui-selected': { backgroundColor: 'rgba(255,255,255,0.2) !important' }
+        }}
+      />
     </Stack>
   );
 }
+
 export default ContentPagination;
