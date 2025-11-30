@@ -8,12 +8,15 @@ import { MyLayout } from './components/MyLayout'
 export default function App() {
   return (
     <Routes>
-      <Route path='/' element={<MyLayout/>} >
-        <Route path='/' element={<Movies />} />
+      <Route path='/' element={<MyLayout />} >
+
+        <Route index element={<Movies />} />
+
+        <Route path='movies' element={<Movies />} />
+
         <Route path='/tvseries' element={<TVSeries />} />
         <Route path='/search' element={<SearchPage />} />
       </Route>
     </Routes>
   )
 }
-
