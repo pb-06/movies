@@ -1,27 +1,24 @@
-import * as React from 'react';
+import React from 'react';
 import Chip from '@mui/material/Chip';
-import Stack from '@mui/material/Stack';
-import { useState } from 'react';
-import {MdOutlineRadioButtonChecked, MdOutlineRadioButtonUnchecked } from "react-icons/md";
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
 
-
-
-export const SingleChip = ({id,name,selectedGenres,setSelectedGenres}) => {
-    const [isSelected, setIsSelected] = useState(false)
-
-    const handleClick = () => {
-        setIsSelected(!isSelected)
-        if(selectedGenres.indexOf(id)==-1)
-                setSelectedGenres(prev=>[...prev,id])
-        else
-            setSelectedGenres(prev=>prev.filter(item=>item!=id))
-    };
-
-
-
+export const SingleChip = ({ label, selected, onToggle }) => {
     return (
-        <Stack direction="row" spacing={1} sx={{padding:'5px'}}>
-            TODO use Chip for showing genre
-        </Stack>
+        <Chip
+            label={label}
+            onClick={onToggle}
+            clickable
+            color={selected ? "secondary" : "default"}
+            variant={selected ? "filled" : "outlined"}
+            icon={selected ? <CheckCircleIcon /> : <RadioButtonUncheckedIcon />}
+            sx={{ 
+                color: 'white', 
+                borderColor: 'white',
+                '& .MuiChip-icon': { color: 'inherit' }
+            }}
+        />
     );
-}
+};
+
+export default SingleChip;
